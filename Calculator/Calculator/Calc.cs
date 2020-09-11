@@ -7,29 +7,19 @@ using System.Text.RegularExpressions;
 
 namespace Calculator
 {
-    public static class Calc
+    public class Calc
     {
-        public static double Calculate(double a, char c, double b)
+        private Dictionary<char, Func<double, double, double>> CalcOperations = new Dictionary<char, Func<double, double, double>>();
+        public Calc()
         {
-            double ans = 0;
-            switch (c)
-            {
-                case '+': ans = a + b;break;
-                case '-': ans = a - b;break;
-                case '*': ans = a * b; break;
-                case '/': 
-                        {
-                        if (b == 0) throw new DivideByZeroException();
-                        else {
-                            ans = (double)a / b;
-                            break;
-                            }
-                        }
-                default:
-                    throw new Exception("Калькулятор не может работать с таким выражением");
-            }
-            return ans;
-
+            CalcOperations.Add('+', (x, y) => x + y);
+            CalcOperations.Add('-', (x, y) => x - y);
+            CalcOperations.Add('*', (x, y) => x * y);
+            CalcOperations.Add('/', (x, y) => { if (y == 0) throw new DivideByZeroException(); else return (x / y); });
+        }
+        public double Calculate(double a, char c, double b)
+        {
+            return CalcOperations[c](a, b);
         }
     }
 }
