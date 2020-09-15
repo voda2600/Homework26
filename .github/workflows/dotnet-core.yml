@@ -1,4 +1,4 @@
-name: .NET Core
+name: CI/CD
 
 on:
   push:
@@ -11,20 +11,31 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        dotnet-version: 3.1.301
+        node-version: ${{ matrix.node-version }}
+
     - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal -- --coverage
+      run: npm install
+
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
+
+    - name: Build
+      run: npm run build
+
     - name: Deploy
       run: |
         git config --global user.name $user_name
