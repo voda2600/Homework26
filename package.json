@@ -1,3 +1,0 @@
-"homepage": "https://myusername.github.io/my-app",
-"predeploy": "npm run build",
-"deploy": "gh-pages -d build",
