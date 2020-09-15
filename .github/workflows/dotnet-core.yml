@@ -23,11 +23,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Check code coverage
-      run: |
-        dotnet test -coverprofile=coverage.tmp.out ./...
-        cat coverage.tmp.out | grep -v _mock.go > coverage.out
-        dotnet tool cover -html=coverage.out -o coverage.html
     - name: Upload coverage report to codecov.io
       run: ./scripts/codecov-upload.sh -f ./coverage.out -y ./codecov.yml -n coverage-report -F
     - name: Add coverage.out to artifacts
