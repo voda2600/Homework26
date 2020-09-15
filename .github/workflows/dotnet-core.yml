@@ -1,7 +1,16 @@
-on: [push, pull_request]
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
-  run:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -14,16 +23,3 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests and collect coverage
-        run: yarn run test-all
-      - name: Upload coverage to Codecov
-        uses: ./
-        with:
-          files: ./coverage/calculator/coverage-final.json,./coverage/index/coverage-final.json
-          file: ./coverage/coverage-final.json
-          flags: unittest
-          name: codecov-1
