@@ -23,3 +23,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: BuildAndCover
+      run: dotnet build HW1.sln -c Release
+    - name: TestAndCover
+      run: dotnet test -c Release --no-build CalculatorTests/CalculatorTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: bash
+      run: bash <(curl -s https://codecov.io/bash)
+
