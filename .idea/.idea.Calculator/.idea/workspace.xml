@@ -4,9 +4,15 @@
     <projectFile>Calculator/Calculator.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5361de2b-51f4-4018-bf66-6625287c3e28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CalcTest/CalcTest.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalcTest/MyCalcTest.cs" beforeDir="false" />
+    <list default="true" id="d4d04d86-342d-40e7-a5a1-a64c6bc20f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Calculator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Calculator/riderModule.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1hbkeRjr1HCo3E5tTdlf9DAkfm5" />
+  <component name="ProjectId" id="1hbpf5ZctGzF4d2kUxBDoFJunBg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,12 +55,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5361de2b-51f4-4018-bf66-6625287c3e28" name="Default Changelist" comment="" />
-      <created>1600287277297</created>
+      <changelist id="d4d04d86-342d-40e7-a5a1-a64c6bc20f8a" name="Default Changelist" comment="" />
+      <created>1600289750024</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1600287277297</updated>
-      <workItem from="1600287288655" duration="114000" />
+      <updated>1600289750024</updated>
+      <workItem from="1600289760293" duration="288000" />
     </task>
     <servers />
   </component>
@@ -82,6 +88,31 @@
           <item name="Total 100% 0/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Calculator 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Calculator 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 100% 0/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Calculator 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Calculator 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Calc 100% 0/19" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 100% 0/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CalcTest 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 100% 0/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CalcTest 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="UnitTestProject1 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 100% 0/72" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CalcTest 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="UnitTestProject1 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CalcTest1 100% 0/53" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
