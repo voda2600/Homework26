@@ -76,5 +76,11 @@ namespace UnitTestProject1
             Assert.ThrowsException<System.DivideByZeroException>(() => calc.Calculate(a, c, b));
 
         }
+        
+        [TestMethod]
+        public void TestingMain()
+        {
+            
+        }
     }
 }
