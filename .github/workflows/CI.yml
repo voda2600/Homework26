@@ -23,7 +23,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Test Coverage
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+    - name:  pushing
+      run: bash <(curl -s https://codecov.io/bash)
+
