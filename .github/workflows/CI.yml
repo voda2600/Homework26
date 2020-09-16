@@ -23,10 +23,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: BuildAndCover
-      run: dotnet build Calculator.sln -c Release
-    - name: TestAndCover
-      run: dotnet test -c Release --no-build CalcTest/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-    - name: bash
-      run: bash <(curl -s https://codecov.io/bash)
-
+    - name: Test Coverage
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
