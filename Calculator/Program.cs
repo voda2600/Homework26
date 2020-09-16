@@ -17,6 +17,7 @@ namespace Calculator
                 Console.WriteLine("You can continue the calculation. Enter the operation and the number...Answer = \n" + a);
                 c = GetOper();
                 b = GetNum();
+                
             }
 
 
