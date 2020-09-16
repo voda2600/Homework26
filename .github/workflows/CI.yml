@@ -22,12 +22,12 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test -c Release --no-build  CalcTest/CalcTest.csproj --results-directory ./coverage.xml /p:CollectCoverage=true 
+      run: dotnet test -c Release --no-build  CalcTest/CalcTest.csproj  /p:CollectCoverage=true 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
+        file: ./TestResults
         flags: tests
         name: codecov-umbrella
         yml: ./codecov.yml
