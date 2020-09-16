@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Calculator\Calculator.csproj" />
-    <PackageReference Exclude="..\Calculator\Program.cs"/>
+    <PackageReference Remove="..\Calculator\Program.cs"/>
   </ItemGroup>
   
 
