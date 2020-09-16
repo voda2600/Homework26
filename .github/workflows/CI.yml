@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test -c Release --no-build CalcTest/CalcTest.csproj /p:CollectCoverage=true --coverage-clover=coverage.xml
+      run: dotnet test -c Release --no-build CalcTest/CalcTest.csproj /p:CollectCoverage=true /p:coverage-clover=coverage.xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
