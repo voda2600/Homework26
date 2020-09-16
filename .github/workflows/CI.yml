@@ -22,15 +22,5 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test -c Release --no-build  UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true 
-           bash <(curl -s https://codecov.io/bash)
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        flags: tests
-        name: codecov-umbrella
-        yml: ./codecov.yml
-        fail_ci_if_error: true
-
+      run: dotnet test -c Release --no-build  UnitTestProject1/CalcTest.csproj 
+   
