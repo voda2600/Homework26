@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
-namespace Calculator
+namespace CalculatorClass
 {
     public class Calc
     {
@@ -23,4 +19,3 @@ namespace Calculator
         }
     }
 }
-

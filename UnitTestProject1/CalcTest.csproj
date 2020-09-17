@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -18,8 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Calculator\Calculator.csproj" />
-    <PackageReference Remove="..\Calculator\Program.cs"/>
+    <ProjectReference Include="..\CalculatorClass\CalculatorClass.csproj" />
   </ItemGroup>
   
 
