@@ -17,42 +17,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, ans); 
 
         }
-        [TestMethod]
-        public void TestDef10and20_ansM10()
-        {
-            double a = 10;
-            char c = '-';
-            double b = 20;
-            double expected = -10;
-            CalculatorClass.Calc calc = new CalculatorClass.Calc();
-            double ans = calc.Calculate(a, c, b);
-            Assert.AreEqual(expected, ans);
-
-        }
-        [TestMethod]
-        public void TestDef1000010and1000()
-        {
-            double a = 10000.10;
-            char c = '-';
-            double b = 1000;
-            double expected = 9000.10;
-            CalculatorClass.Calc calc = new CalculatorClass.Calc();
-            double ans = calc.Calculate(a, c, b);
-            Assert.AreEqual(expected, ans);
-
-        }
-        [TestMethod]
-        public void TestMulti99and2_ans198()
-        {
-            double a = 99;
-            char c = '*';
-            double b = 2;
-            double expected = 198;
-            CalculatorClass.Calc calc = new CalculatorClass.Calc();
-            double ans = calc.Calculate(a, c, b);
-            Assert.AreEqual(expected, ans);
-
-        }
+       
         [TestMethod]
         public void TestDelen9999and9999_ans1()
         {
