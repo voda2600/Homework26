@@ -16,10 +16,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\CalculatorClass\CalculatorClass.csproj" />
+    <ProjectReference Include="../Calculator/Calculator.csproj"/>
   </ItemGroup>
-  
 
 </Project>
