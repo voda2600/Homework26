@@ -2,16 +2,16 @@
 
 open System
 
-let divide x y = x/y
-let sum x y = x+y
-let difinition x y = x-y
-let multi x y = x*y
+let divide x y = 
+    if y=0 
+    then None
+    else Some(x/y)
 
 let calculate op x y =
     match op with 
-    |"+" -> sum x y
-    |"-" -> difinition x y
-    |"*" -> multi x y
+    |"+" -> Some(x+y)
+    |"-" -> Some(x-y)
+    |"*" -> Some(x*y)
     |"/" -> divide x y
     | _ -> raise(System.NotImplementedException("NotCompFunc"))
 
