@@ -9,7 +9,7 @@ let multi x y = x*y
 
 let calculate op x y =
     match op with 
-    |"+" -> divide x y
+    |"+" -> sum x y
     |"-" -> difinition x y
     |"*" -> multi x y
     |"/" -> divide x y
