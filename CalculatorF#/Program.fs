@@ -2,18 +2,42 @@
 
 open System
 
+type MaybeBuilder() =
+    member this.Bind(x,f)=
+        match x with
+        |None -> None
+        |Some a -> f a
+    member this.Return(x)=
+        Some x
+
+let maybe = new MaybeBuilder()
+
+
 let divide x y = 
-    if y=0 
-    then None
-    else Some(x/y)
+   match y with
+   | 0 -> None
+   | _ -> Some (x / y)
+
+let CheckNull x=
+    match x with
+    |Some(x) -> printfn x
+    |None -> printfn 
 
 let calculate op x y =
-    match op with 
-    |"+" -> Some(x+y)
-    |"-" -> Some(x-y)
-    |"*" -> Some(x*y)
-    |"/" -> divide x y
-    | _ -> raise(System.NotImplementedException("NotCompFunc"))
+    maybe{
+    let! result =
+        match op with 
+        |"+" -> Some(x+y)
+        |"-" -> Some(x-y)
+        |"*" -> Some(x*y)
+        |"/" -> divide x y
+        |_ -> None
+    return result
+    }
+        
+let write (x:int option) = 
+    if x=None then Console.WriteLine("None")
+    else Console.WriteLine(x.Value)
 
 
 [<EntryPoint>]
@@ -21,5 +45,6 @@ let main argv =
     let x  = Console.ReadLine() |> Int32.Parse
     let op  = Console.ReadLine() 
     let y  = Console.ReadLine() |> Int32.Parse
-    Console.WriteLine(calculate op x y)
+    let result = calculate op x y
+    write result
     0 // return an integer exit code
