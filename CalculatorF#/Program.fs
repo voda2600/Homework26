@@ -18,7 +18,7 @@ let divide x y =
    | 0 -> None
    | _ -> Some (x / y)
 
-let CheckNull x=
+let checkNull x=
     match x with
     |Some(x) -> printfn x
     |None -> printfn 
