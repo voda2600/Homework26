@@ -80,6 +80,7 @@
       <workItem from="1601839586773" duration="1012000" />
       <workItem from="1601841365622" duration="60000" />
       <workItem from="1601841466253" duration="280000" />
+      <workItem from="1601844202651" duration="61000" />
     </task>
     <servers />
   </component>
@@ -90,9 +91,14 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="216" />
+    <option name="symbolColumnWidth" value="238" />
     <coverage-tree-state>
-      <expand />
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 100% 0/25" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
       <select />
     </coverage-tree-state>
   </component>

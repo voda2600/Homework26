@@ -32,3 +32,4 @@ let ``Console write 5`` () =
 [<Fact>]
 let ``Console write None`` () =
     Assert.Equal(Program.write(None), System.Console.Write("None"))
+

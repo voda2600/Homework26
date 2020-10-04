@@ -2,6 +2,8 @@
 
 open System
 open System.Diagnostics.CodeAnalysis
+
+[<ExcludeFromCodeCoverage>]
 type MaybeBuilder() =
     member this.Bind(x,f)=
         match x with
