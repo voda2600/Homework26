@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ CaclF ]
+    branches: [ master ]
   pull_request:
-    branches: [ CaclF ]
+    branches: [ master ]
 
 jobs:
   build:
