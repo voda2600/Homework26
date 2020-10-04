@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: ./CalculatorC#/
+    
 jobs:
   build:
 
@@ -22,4 +26,13 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test -c Release --no-build  UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: CalculatorC#/UnitTestProject1/coverage.opencover.xml
+        flags: tests
+        name: codecov-umbrella
+        yml: ./codecov.yml
+        fail_ci_if_error: true
