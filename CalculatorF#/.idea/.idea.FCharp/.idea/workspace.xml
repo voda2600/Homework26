@@ -15,6 +15,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../CalcFTest/Tests.fs" />
+        <option value="$PROJECT_DIR$/FCharp.sln" />
+        <option value="$PROJECT_DIR$/CalcFTest/Tests.fs" />
+        <option value="$PROJECT_DIR$/CalcFTest/CalcFTest.fsproj" />
       </list>
     </option>
   </component>
@@ -75,6 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1601839582162</updated>
       <workItem from="1601839586773" duration="1012000" />
+      <workItem from="1601841365622" duration="60000" />
+      <workItem from="1601841466253" duration="280000" />
     </task>
     <servers />
   </component>
@@ -85,18 +90,13 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="146" />
+    <option name="symbolColumnWidth" value="216" />
     <coverage-tree-state>
-      <expand>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 100% 0/31" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </coverage-tree-state>
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -118,5 +118,9 @@
       <screen x="0" y="0" width="1386" height="740" />
     </state>
     <state width="1343" height="183" key="GridCell.Tab.0.right/0.0.1386.740@0.0.1386.740" timestamp="1601840608085" />
+    <state x="305" y="0" width="636" height="740" key="find.popup" timestamp="1601841425229">
+      <screen x="0" y="0" width="1386" height="740" />
+    </state>
+    <state x="305" y="0" width="636" height="740" key="find.popup/0.0.1386.740@0.0.1386.740" timestamp="1601841425229" />
   </component>
 </project>

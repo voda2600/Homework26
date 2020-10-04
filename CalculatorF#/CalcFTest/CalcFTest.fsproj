@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CalculatorF#\FCharp.fsproj" />
+    <ProjectReference Include="..\FCharp.fsproj" />
   </ItemGroup>
 
 </Project>

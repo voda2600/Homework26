@@ -1,8 +1,9 @@
 module Tests
 
 open System
+open Microsoft.VisualStudio.TestPlatform.TestHost
 open Xunit
-open Program
+
 [<Fact>]
 let ``divide 6/2`` () =
     Assert.Equal(Some(6/2), Program.divide 6 2)
