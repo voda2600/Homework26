@@ -8,7 +8,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./CalculatorC#/
+    working-directory: ./
     
 jobs:
   build:
@@ -25,8 +25,10 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test -c Release --no-build  UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: TestC#
+      run: dotnet test -c Release --no-build  ./CalculatorC#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: TestF#
+      run: dotnet test -c Release --no-build  ./CalculatorF#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
