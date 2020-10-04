@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-defaults:
-  run:
-    working-directory: ./
-    
 jobs:
   build:
 
@@ -21,15 +17,19 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+    - name: Install dependenciesC#
+      run: dotnet restore ./CalculatorC#/Calculator.sln
+    - name: Install dependenciesF#
+      run: dotnet restore ./CalculatorF#/FCharp.sln
+    - name: BuildC#
+      run: dotnet build --configuration Release --no-restore  ./CalculatorC#/Calculator.sln
+    - name: BuildF#
+      run: dotnet build --configuration Release --no-restore  ./CalculatorF#/FCharp.sln
     - name: TestC#
       run: dotnet test -c Release --no-build  ./CalculatorC#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: TestF#
-      run: dotnet test -c Release --no-build  ./CalculatorF#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-    - name: Upload coverage to Codecov
+      run: dotnet test -c Release --no-build  ./CalculatorF#/CalcFTest/CalcFTest.fsproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Upload coverageC# to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -38,5 +38,12 @@ jobs:
         name: codecov-umbrella
         yml: ./codecov.yml
         fail_ci_if_error: true
-
-   
+    - name: Upload coverageF# to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: CalculatorF#/CalcFTest/coverage.opencover.xml
+        flags: tests
+        name: codecov-umbrella
+        yml: ./codecov.yml
+        fail_ci_if_error: true
