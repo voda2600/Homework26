@@ -1,7 +1,7 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
-
+open System.Diagnostics.CodeAnalysis
 type MaybeBuilder() =
     member this.Bind(x,f)=
         match x with
@@ -18,10 +18,6 @@ let divide x y =
    | 0 -> None
    | _ -> Some (x / y)
 
-let checkNull x=
-    match x with
-    |Some(x) -> printfn x
-    |None -> printfn 
 
 let calculate op x y =
     maybe{
@@ -39,7 +35,7 @@ let write (x:int option) =
     if x=None then Console.WriteLine("None")
     else Console.WriteLine(x.Value)
 
-
+[<ExcludeFromCodeCoverage>]
 [<EntryPoint>]
 let main argv =
     let x  = Console.ReadLine() |> Int32.Parse
