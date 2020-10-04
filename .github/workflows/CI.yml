@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master ]
+    branches: [ CaclF ]
   pull_request:
-    branches: [ master ]
+    branches: [ CaclF ]
 
 jobs:
   build:
@@ -17,10 +17,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Install dependencies
+    - name: Install dependenciesC#
       run: dotnet restore ./CalculatorC#/Calculator.sln
-    - name: Build
+    - name: Install dependenciesF#
+      run: dotnet restore ./CalculatorF#/FCharp.sln
+    - name: BuildC#
       run: dotnet build --configuration Release --no-restore  ./CalculatorC#/Calculator.sln
+    - name: BuildF#
+      run: dotnet build --configuration Release --no-restore  ./CalculatorF#/FCharp.sln
     - name: TestC#
       run: dotnet test -c Release --no-build  ./CalculatorC#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: TestF#
