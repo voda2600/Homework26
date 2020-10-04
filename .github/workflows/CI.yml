@@ -28,8 +28,8 @@ jobs:
     - name: TestC#
       run: dotnet test -c Release --no-build  ./CalculatorC#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - name: TestF#
-      run: dotnet test -c Release --no-build  ./CalculatorF#/UnitTestProject1/CalcTest.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-    - name: Upload coverage to Codecov
+      run: dotnet test -c Release --no-build  ./CalculatorF#/CalcFTest/CalcFTest.fsproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Upload coverageC# to Codecov
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -38,5 +38,12 @@ jobs:
         name: codecov-umbrella
         yml: ./codecov.yml
         fail_ci_if_error: true
-
-   
+    - name: Upload coverageF# to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: CalculatorF#/CalcFTest/coverage.opencover.xml
+        flags: tests
+        name: codecov-umbrella
+        yml: ./codecov.yml
+        fail_ci_if_error: true
