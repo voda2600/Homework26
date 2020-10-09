@@ -19,6 +19,7 @@ namespace FProxyC
         public void ConfigureServices(IServiceCollection services)
         {
         }
+ 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -28,7 +29,7 @@ namespace FProxyC
             {
                 app.UseDeveloperExceptionPage();
             }
-
+           
             app.UseRouting();
 
             app.MapWhen(context =>
@@ -59,7 +60,8 @@ namespace FProxyC
                     else ans = "No found this \""+context.Request.Query["oper"].ToString()+"\" in calculator";
                     await context.Response.WriteAsync(ans);
                 });
-            }
+            }   
+
         }
     }
 }
