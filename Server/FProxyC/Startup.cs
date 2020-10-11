@@ -57,7 +57,7 @@ namespace FProxyC
                         context.Request.Query["oper"] == "-" ||
                         context.Request.Query["oper"] == "*")
                         ans = (new Calc().Calculate(double.Parse(context.Request.Query["a"]), char.Parse(context.Request.Query["oper"]), double.Parse(context.Request.Query["b"]))).ToString();
-                    else ans = "No found this \""+context.Request.Query["oper"].ToString()+"\" in calculator";
+                    else ans = "No found this operation in calculator";
                     await context.Response.WriteAsync(ans);
                 });
             }   
