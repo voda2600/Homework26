@@ -5,7 +5,8 @@ open System.Diagnostics.CodeAnalysis
 open System.Net
 open System.Text
 open System.IO
-open System.Text
+open System.Threading
+
 
 
 [<ExcludeFromCodeCoverage>]
@@ -30,18 +31,29 @@ type AsyncMaybeBuilder () =
 
     member this.Return(x:'a option) =
         async{return x}
+let masync = new AsyncMaybeBuilder()
 
-let private GetAnswer(a:float,b:float,oper) =
-       async{
-           let req = WebRequest.Create("http://localhost:53881?a="+a.ToString()+"&b="+b.ToString()+"&oper="+oper+"", Method = "GET", ContentType = "text/plain")
-           let rsp = req.GetResponse()
-           let sr = rsp.GetResponseStream()
-           let rdr = new StreamReader(sr)
-           return rdr.ReadToEnd()
+let public StatusCode(responce:HttpWebResponse) = 
+    async{
+        return 
+            match Convert.ToInt32(responce.StatusCode) with
+            |200->let s = responce.GetResponseStream()
+                  let rdr = new StreamReader(s)
+                  rdr.ReadToEnd()|>Some
+            |400 -> None
+            |500 ->None
+            |_ -> None
+    }
+
+let private GetAnswer(a,b,oper) =
+       masync{
+           let req = HttpWebRequest.Create("http://localhost:53881?a="+a+"&b="+b+"&oper="+oper+"", Method = "GET", ContentType = "text/plain")
+           let rsp = req.GetResponse():?>HttpWebResponse 
+           let! statusAns = StatusCode(rsp)
+           return Some(statusAns)
        }
 module Calculator=
 
-    let masync = new AsyncMaybeBuilder()
     
     let public ChangeOper(oper) = 
         match oper with
@@ -50,27 +62,28 @@ module Calculator=
         | "/" -> "%2F"
         | "-" -> "-"
         | _ -> ""
-    
-    let public Calculate(a:float,b:float,oper)=
+//Попробовтаь добавить masync + заглушить ошибки из серверы
+    let public Calculate(a,b,oper)=
         let oper = ChangeOper(oper)
-        let ans = Async.RunSynchronously(GetAnswer(a,b,oper))
+        let ans = GetAnswer(a,b,oper)
         ans
-
+let public write(x:'a option)=
+    match x with
+    |None -> printfn"%s"("None")
+    |_ -> printfn"%s"(x.Value.ToString())
 
 
         
-let write (x:int option) = 
-    if x=None then Console.WriteLine("None")
-    else Console.WriteLine(x.Value)
+
 
 [<ExcludeFromCodeCoverage>]            
    module Program =
        [<EntryPoint>]
        let main argv =
            Console.WriteLine("Give a operation b  for calculator");
-           let a = Convert.ToDouble(Console.ReadLine())
+           let a = Console.ReadLine()
            let oper = Console.ReadLine()
-           let b = Convert.ToDouble(Console.ReadLine())
-           let ans  = Calculator.Calculate(a,b,oper)
-           printf"%s"(ans)
+           let b = Console.ReadLine()
+           let ans  = Async.RunSynchronously(Calculator.Calculate(a,b,oper))
+           write(ans)
            0
