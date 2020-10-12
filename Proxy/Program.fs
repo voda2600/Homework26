@@ -9,17 +9,9 @@ open System.Threading
 
 
 
+
+
 [<ExcludeFromCodeCoverage>]
-type MaybeBuilder() =
-    member this.Bind(x,f)=
-        match x with
-        |None -> None
-        |Some a -> f a
-    member this.Return(x)=
-        Some x
-
-let maybe = new MaybeBuilder()
-
 type AsyncMaybeBuilder () =
     member this.Bind(x, f) =
         async {
@@ -47,26 +39,30 @@ let public StatusCode(responce:HttpWebResponse) =
 
 let private GetAnswer(a,b,oper) =
        masync{
-           let req = HttpWebRequest.Create("http://localhost:53881?a="+a+"&b="+b+"&oper="+oper+"", Method = "GET", ContentType = "text/plain")
-           let rsp = req.GetResponse():?>HttpWebResponse 
-           let! statusAns = StatusCode(rsp)
-           return Some(statusAns)
+                let req = HttpWebRequest.Create("http://localhost:53881?a="+a+"&b="+b+"&oper="+oper+"", Method = "GET", ContentType = "text/plain")
+                let rsp = req.GetResponse() :?> HttpWebResponse
+                let! statusAns = StatusCode(rsp)
+                return Some(statusAns)
        }
 module Calculator=
 
     
     let public ChangeOper(oper) = 
+        async{
         match oper with
-        | "+" -> "%2B"
-        | "*" -> "*"
-        | "/" -> "%2F"
-        | "-" -> "-"
-        | _ -> ""
-//Попробовтаь добавить masync + заглушить ошибки из серверы
+        | "+" -> return "%2B"
+        | "*" -> return "*"
+        | "/" -> return "%2F"
+        | "-" ->return "-"
+        | _ ->return ""
+        }
+
     let public Calculate(a,b,oper)=
-        let oper = ChangeOper(oper)
-        let ans = GetAnswer(a,b,oper)
-        ans
+        async{
+        let! oper = ChangeOper(oper)
+        let! ans = GetAnswer(a,b,oper)
+        return ans
+        }
 let public write(x:'a option)=
     match x with
     |None -> printfn"%s"("None")
