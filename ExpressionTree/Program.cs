@@ -8,7 +8,8 @@ namespace ExpressionTree
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ExpressionTreeCreating.Parsing("2+3*10"));
+            
+            Console.WriteLine(ExpressionTreeCreating.Parsing("9*2-5/2+1/4-2/8+9/10"));
         }
     }
 }
