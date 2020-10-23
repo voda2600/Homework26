@@ -10,8 +10,9 @@ namespace ExprTree2
     {
         static void Main(string[] args)
         {
+            //"(2+3)/12*7+8*9"
             var mas = "(2+3)/12*7+8*9".ToCharArray();
-           Console.WriteLine(ExpTreeParsing.EvaluateExpression(mas));
+            ExpTreeParsing.EvaluateExpression(mas);
             
         }
     }
