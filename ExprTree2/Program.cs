@@ -10,7 +10,8 @@ namespace ExprTree2
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+            //Для работы приложения нужно запустить Server
             Console.WriteLine("Введите выражение");
             string expression = "(2+3)/12*7+8*9";//Console.ReadLine();
             var mas = expression.Replace(" ", "").ToCharArray();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using System.Text;
@@ -96,10 +97,20 @@ namespace ExprTree2
             return evaluate;
         }
 
+        //Создаётся дерево
         private static void ExecuteOperation()
         {
-            var rightOperand = expList.Pop();
-            var leftOperand = expList.Pop();
+            Expression rightOperand;
+            Expression leftOperand;
+            try
+            {
+                 rightOperand = expList.Pop();
+                 leftOperand = expList.Pop();
+            }
+            catch
+            {
+                throw new Exception("Строка имеет не верный формат");
+            }
             ConstantExpression op = opExpList.Pop();
             BinaryExpression result;
             switch (op.Value)

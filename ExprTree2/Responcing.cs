@@ -17,7 +17,7 @@ namespace ExprTree2
             string oper1 = "%2B";
             double ans = GetPesponsing(a1, b1, oper1);
             Console.WriteLine("Считаю на сервере (" + a1.ToString() + " + " + b1.ToString() + " = " + ans + ")");
-            return ans;//decimal.Parse(ans);
+            return ans;
         }
         public static double GetResponsiMin(Expression a, Expression b)
         {
@@ -26,7 +26,7 @@ namespace ExprTree2
             string oper1 = "-";
             double ans = GetPesponsing(a1, b1, oper1);
             Console.WriteLine("Считаю на сервере (" + a1.ToString() + " - " + b1.ToString() + " = " + ans + ") ");
-            return ans;//decimal.Parse(ans);
+            return ans;
         }
         public static double GetResponsiDel(Expression a, Expression b)
         {
@@ -44,7 +44,7 @@ namespace ExprTree2
             string oper1 = "*";
             double ans = GetPesponsing(a1, b1, oper1);
             Console.WriteLine("Считаю на сервере (" + a1.ToString() + " * " + b1.ToString() + " = " + ans + ") ");
-            return ans;//decimal.Parse(ans);
+            return ans;
         }
         public static double GetPesponsing(string a1, string b1, string oper1)
         {
