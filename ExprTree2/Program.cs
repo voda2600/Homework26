@@ -13,7 +13,7 @@ namespace ExprTree2
         { 
             //Для работы приложения нужно запустить Server
             Console.WriteLine("Введите выражение");
-            string expression = "(2+3)/12*7+8*9";//Console.ReadLine();
+            string expression = "(2+3)/12*7+12*1242142";//Console.ReadLine();
             var mas = expression.Replace(" ", "").ToCharArray();
             Expression Tree = ExpTreeParsing.ParsingExpression(mas);
             Console.WriteLine("Получившееся дерево");
