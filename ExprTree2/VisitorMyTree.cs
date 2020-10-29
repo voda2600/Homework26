@@ -16,23 +16,22 @@ namespace ExprTree2
 
         public override Expression Visit(Expression node)
         {
-            var task = Task.Run(async () =>
+            tasks[node.ToString()] = Task.Run(async () =>
             {
                 double a1 = 0;
                 double.TryParse(node.ToString(), out a1);
-                if (a1 != 0 || (node.ToString()=="0"))
+                if (a1 != 0 || (node.ToString() == "0"))
                     return a1;
                 Expression a = ((BinaryExpression)node).Left;
                 Expression b = ((BinaryExpression)node).Right;
                 Visit((Expression)((ConstantExpression)a).Value);
                 Visit((Expression)((ConstantExpression)b).Value);
                 var ans = await Task.WhenAll(tasks[a.ToString()], tasks[b.ToString()]);
-                object[] args = new object[] {Expression.Constant(ans[0]),Expression.Constant(ans[1])};
-                double globAns = (double)((BinaryExpression)node).Method.Invoke(this,args);
+                object[] args = new object[] { Expression.Constant(ans[0]), Expression.Constant(ans[1]) };
+                double globAns = (double)((BinaryExpression)node).Method.Invoke(this, args);
                 doubleAns = globAns;
                 return globAns;
             });
-            tasks[node.ToString()] = task;
             return node;
         }
         public Task<double> RunCalculate(Expression Tree)
