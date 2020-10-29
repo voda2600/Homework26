@@ -12,9 +12,8 @@ namespace ExprTree2
     class VisitorMyTree : ExpressionVisitor
     {
         public double doubleAns;
-        public static ConcurrentDictionary<string, Task<double>> tasks = new ConcurrentDictionary<string, Task<double>>();
-        public Task<double> root;
-        public static int chert = 0;
+        public ConcurrentDictionary<string, Task<double>> tasks = new ConcurrentDictionary<string, Task<double>>();
+
         public override Expression Visit(Expression node)
         {
             var task = Task.Run(async () =>
@@ -30,18 +29,15 @@ namespace ExprTree2
                 var ans = await Task.WhenAll(tasks[a.ToString()], tasks[b.ToString()]);
                 object[] args = new object[] {Expression.Constant(ans[0]),Expression.Constant(ans[1])};
                 double globAns = (double)((BinaryExpression)node).Method.Invoke(this,args);
-                VisitorMyTree.chert++;
-                for (int i = 0; i < chert; i++)
-                    Console.Write("-");
                 doubleAns = globAns;
                 return globAns;
             });
-            if (root == null)
-            {
-                root = task;
-            }
             tasks[node.ToString()] = task;
             return node;
+        }
+        public Task<double> RunCalculate(Expression Tree)
+        {
+           return this.tasks[Tree.ToString()];
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ExprTree2
         { 
             VisitorMyTree visitorMy = new VisitorMyTree();
             visitorMy.Visit(Tree);
-            return await visitorMy.root;
+            return await visitorMy.RunCalculate(Tree);
         }
         public static Expression ParsingExpression(char[] exp)
         {

@@ -12,7 +12,9 @@ namespace ExprTree2
         public static int chert = 0;
         public static double GetResponsiPlus(Expression a, Expression b)
         {
-
+            chert++;
+            for (int i = 0; i < chert; i++)
+                Console.Write("-");
             string a1 = a.ToString();
             string b1 = b.ToString();
             string oper1 = "%2B";
@@ -22,6 +24,9 @@ namespace ExprTree2
         }
         public static double GetResponsiMin(Expression a, Expression b)
         {
+            chert++;
+            for (int i = 0; i < chert; i++)
+                Console.Write("-");
             string a1 = a.ToString();
             string b1 = b.ToString();
             string oper1 = "-";
@@ -31,6 +36,9 @@ namespace ExprTree2
         }
         public static double GetResponsiDel(Expression a, Expression b)
         {
+            chert++;
+            for (int i = 0; i < chert; i++)
+                Console.Write("-");
             string a1 = a.ToString();
             string b1 = b.ToString();
             string oper1 = "%2F";
@@ -40,6 +48,9 @@ namespace ExprTree2
         }
         public static double GetResponsiMult(Expression a, Expression b)
         {
+            chert++;
+            for (int i = 0; i < chert; i++)
+                Console.Write("-");
             string a1 = a.ToString();
             string b1 = b.ToString();
             string oper1 = "*";
@@ -49,6 +60,7 @@ namespace ExprTree2
         }
         public static double GetPesponsing(string a1, string b1, string oper1)
         {
+              
             HttpWebRequest proxy = (HttpWebRequest)HttpWebRequest.Create("http://localhost:53881?a=" + a1 + "&b=" + b1 + "&oper=" + oper1 + "");
             var resp = proxy.GetResponse();
             var resp1 = resp.GetResponseStream();
