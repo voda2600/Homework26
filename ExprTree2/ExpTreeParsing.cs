@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ExprTree2
 {
@@ -14,11 +15,11 @@ namespace ExprTree2
     {
         public static Stack<Expression> expList = new Stack<Expression>();//Constant
         public static Stack<ConstantExpression> opExpList = new Stack<ConstantExpression>();//MakeTree
-        public static double Calculate(Expression Tree)
+        public async static Task<double> Calculate(Expression Tree)
         { 
             VisitorMyTree visitorMy = new VisitorMyTree();
             visitorMy.Visit(Tree);
-            return double.Parse(visitorMy.DoubleAns);
+            return await visitorMy.root;
         }
         public static Expression ParsingExpression(char[] exp)
         {

@@ -12,6 +12,7 @@ namespace ExprTree2
         public static int chert = 0;
         public static double GetResponsiPlus(Expression a, Expression b)
         {
+
             string a1 = a.ToString();
             string b1 = b.ToString();
             string oper1 = "%2B";
