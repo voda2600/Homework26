@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FProxyC.Middleware
+namespace FProxyC.CalculatorServ
 {
-    public class GetMiddleware
+    public interface ICalc
     {
-
+        double Calculate(double a, char c, double b); 
     }
 }
