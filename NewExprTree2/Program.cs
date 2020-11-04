@@ -15,7 +15,7 @@ namespace ExprTree2
         {
             //Для работы приложения нужно запустить Server, находится в этом же репозитории 
             Console.WriteLine("Введите выражение");
-            string expression = "(2+3)/12*7+8*9";//Console.ReadLine();
+            string expression = "1/0";//Console.ReadLine();
             var mas = expression.Replace(" ", "").ToCharArray();
 
             IResponcing d = ResponsingMethod();
@@ -24,11 +24,13 @@ namespace ExprTree2
             Expression Tree = expTree.ParsingExpression(mas);
             Console.WriteLine("Получившееся дерево");
             Console.WriteLine(Tree.ToString());
+            var ans1 = Expression.Lambda<Func<double>>(Tree).Compile()();
+            Console.WriteLine(ans1);
             var ans = expTree.CalculateAsync(Tree).Result;
             Console.WriteLine("Конечный ответ: " + ans.ToString());
         }
 
-        private static IResponcing ResponsingMethod()
+        public static IResponcing ResponsingMethod()
         {
             IServiceCollection services = new ServiceCollection();
             services.AddSingleton<IResponcing, Calc>(); //Responcing or Calc

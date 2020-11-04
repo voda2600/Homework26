@@ -14,8 +14,8 @@ namespace ExprTree2
 
     public class ExpTreeParsing
     {
-        public static Stack<Expression> expList = new Stack<Expression>();//Constant
-        public static Stack<ConstantExpression> opExpList = new Stack<ConstantExpression>();//MakeTree
+        private static Stack<Expression> expList = new Stack<Expression>();//Constant
+        private static Stack<ConstantExpression> opExpList = new Stack<ConstantExpression>();//MakeTree
         private IResponcing resp;
         public ExpTreeParsing(IResponcing resp)
         {
@@ -62,11 +62,10 @@ namespace ExprTree2
 
         private int ProcessInputNumber(char[] exp, int pos)
         {
-
-            int value = 0;
+            double value = 0;
             while (pos < exp.Length &&
                     exp[pos] >= '0' && exp[pos] <= '9')
-                value = 10 * value + (int)(exp[pos++] - '0');
+                value = 10 * value + (double)(exp[pos++] - '0');
 
             expList.Push(Expression.Constant(value));
 
@@ -111,15 +110,14 @@ namespace ExprTree2
             Expression leftOperand;
             try
             {
-                 rightOperand = expList.Pop();
-                 leftOperand = expList.Pop();
+                rightOperand = expList.Pop();
+                leftOperand = expList.Pop();
             }
             catch
             {
                 throw new Exception("Строка имеет не верный формат");
             }
 
-            //It happened when I went to school for the first time.Well, I was in a hurry to get to school as soon as possible.Soon I was at a meeting at the school, but the teacher looked at me strangely.The next thing i knew, I wore Slippers instead of shoes.In the end, I was scolded.
             ConstantExpression op = opExpList.Pop();
             BinaryExpression result;
             switch (op.Value)

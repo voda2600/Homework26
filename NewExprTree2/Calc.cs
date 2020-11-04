@@ -12,19 +12,13 @@ namespace ExprTree2
             CalcOperations.Add('+', (x, y) => x + y);
             CalcOperations.Add('-', (x, y) => x - y);
             CalcOperations.Add('*', (x, y) => x * y);
-            CalcOperations.Add('/', (x, y) => { if (y == 0)  throw new DivideByZeroException(); else return (x / y); });
+            CalcOperations.Add('/', (x, y) => { if (y == 0)  throw new AggregateException(); else return (x / y); });
         }
         public double Calculate(double a, char c, double b)
         {
-            try
-            {
+          
                 double ans = CalcOperations[c](a, b);
                 return ans;
-            }
-            catch
-            {
-                throw new ArgumentException();
-            }
         }
 
         public double GetPesponsing(double a1, double b1, string oper1)
