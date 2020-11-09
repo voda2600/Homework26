@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\voda2\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\voda2\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\voda2\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\voda2\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\voda2\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="C:\Users\voda2\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\voda2\AppData\Local\JetBrains\Transient\Rider\v202\SolutionCaches\_FCharp.-565340713.00" t="ExcludeRecursive" />
+    <e p="C:\Users\voda2\Desktop\.Net\Homework26\CalculatorF#" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="CalcFTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CalcFTest.fsproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.fs" t="Include" />
+        <e p="Tests.fs" t="Include" />
+      </e>
+      <e p="FCharp.fsproj" t="IncludeRecursive" />
+      <e p="FCharp.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.fs" t="Include" />
+    </e>
+  </component>
+</project>
