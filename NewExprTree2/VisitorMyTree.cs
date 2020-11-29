@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ExprTree2
 {
-    class VisitorMyTree : ExpressionVisitor
+    class VisitorMyTree : MyExpressionTreeVisitor
     {
         public double doubleAns;
         private ConcurrentDictionary<string, Task<double>> tasks = new ConcurrentDictionary<string, Task<double>>();

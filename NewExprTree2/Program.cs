@@ -15,7 +15,7 @@ namespace ExprTree2
         {
             //Для работы приложения нужно запустить Server, находится в этом же репозитории 
             Console.WriteLine("Введите выражение");
-            string expression = "1/0";//Console.ReadLine();
+            string expression = "12*5+6";//Console.ReadLine();
             var mas = expression.Replace(" ", "").ToCharArray();
 
             IResponcing d = ResponsingMethod();
