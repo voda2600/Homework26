@@ -63,12 +63,14 @@ module Calculator=
         let! ans = GetAnswer(a,b,oper)
         return ans
         }
-let public write(x:'a option)=
-    match x with
-    |None -> printfn"%s"("None")
-    |_ -> printfn"%s"(x.Value.ToString())
 
 
+module ProxyCutting=
+    let public Cut (a:string) (b:string) (oper:string) proxy=
+        let res  = (a,b,oper)|> proxy |> Async.RunSynchronously
+        match res with 
+        |Some s -> s
+        |None -> "Error"
         
 
 
@@ -80,6 +82,6 @@ let public write(x:'a option)=
            let a = Console.ReadLine()
            let oper = Console.ReadLine()
            let b = Console.ReadLine()
-           let ans  = Async.RunSynchronously(Calculator.Calculate(a,b,oper))
-           write(ans)
+           let proxyAns = ProxyCutting.Cut a b oper
+           printfn "%s"(proxyAns Calculator.Calculate)
            0
